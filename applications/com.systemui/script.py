@@ -16,6 +16,9 @@ class FullScreenWindow(QMainWindow):
         # Загрузка HTML страницы
         self.web_view.load(QUrl.fromLocalFile("/slipeos/applications/com.systemui/res/drawable/index.html"))
         
+        # Установка размеров окна равными размерам экрана
+        self.setGeometry(0, 0, 1680, 1050)  # Установите здесь размеры экрана вашего клиента
+        
         # Развертывание окна на весь экран
         self.showFullScreen()
 
@@ -32,9 +35,13 @@ async def start_server():
     subprocess.Popen(["python", "/slipeos/applications/com.systemui/server.py"])
 
 async def main():
-    await asyncio.gather(start_server(), run_application())
-
-async def run_application():
+    # Запуск сервера
+    server_process = subprocess.Popen(["python", "/slipeos/applications/com.systemui/server.py"])
+    
+    # Подождать, пока сервер не запустится
+    await asyncio.sleep(2)  # Подставьте здесь необходимое вам время ожидания
+    
+    # Запуск приложения
     app = QApplication(sys.argv)
     window = FullScreenWindow()
     sys.exit(app.exec_())
