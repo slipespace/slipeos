@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slipeOS UI</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <img src="slipe.png" alt="Google" class="slipe-menu" id="slipe-menu" onclick="toggleModal()">
+
+        <div class="search">
+            <input id="input-search" class="search-input" placeholder="Введите поисковый запрос или команду Unix">
+            <div class="search-buttons">
+                <img src="google.webp" alt="Google" class="search-button" onclick="googleSearch()">
+                <img src="tux.png" alt="Slipe" class="search-button" onclick="linux()">
+            </div>
+        </div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <p class="menu-text" onclick="sendCommand('shutdown now')">Завершение работы</p>
+                <p class="menu-text" onclick="sendCommand('reboot')">Перезагрузка</p>
+                <div class="bottom-menu">
+                    <!-- <img class="img-menu" src="settings.png"> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

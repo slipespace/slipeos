@@ -1,0 +1,228 @@
+body {
+    background-color: #0f0f0f;
+}
+
+.main {
+    margin-left: 25px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.appcard-container {
+    position: relative;
+    display: inline-block;
+}
+
+.appcard {
+    width: 128px;
+    height: 128px;
+    margin-left: 5px;
+    margin-top: 5px;
+    border-radius: 25px;
+    position: relative;
+    /* Добавлено */
+    z-index: 1;
+    /* Добавлено */
+    transition: opacity 0.3s ease;
+    /* Добавлено */
+}
+
+.appcard-overlay {
+    position: absolute;
+    margin-top: 8px;
+    top: 0;
+    left: 132px;
+    /* Начальное положение */
+    transform: translateX(-128px);
+    /* Добавлено для смещения вправо */
+    width: 128px;
+    /* Изменено на ширину изображения */
+    height: 120px;
+    /* Изменено на высоту изображения */
+    background-color: #eee;
+    border-radius: 25px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* Добавлено */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    font-family: Arial, sans-serif;
+    /* Добавлено */
+}
+
+.appcard-container:hover .appcard-overlay {
+    transform: translateX(0);
+    /* Добавлено для плавного появления */
+    opacity: 1;
+}
+
+.appcard-container:hover .appcard {
+    opacity: 1;
+    /* Добавлено для плавного изменения прозрачности */
+}
+
+.launch-text {
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.search {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Центрируем содержимое */
+}
+
+.search-buttons {
+    display: flex;
+}
+
+.search-button {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.search-input {
+    background-color: #1f1f1f;
+    border: none;
+    border-radius: 23px;
+    width: 450px;
+    height: 50px;
+    padding: 0 20px;
+    /* Добавляем немного отступов для текста */
+    color: #fff;
+    /* Цвет текста */
+    font-size: 16px;
+    /* Размер шрифта */
+    text-align: center;
+    /* Выравниваем текст по центру */
+}
+
+
+/* Убираем желтую рамку при фокусе */
+
+.search-input:focus {
+    outline: none;
+}
+
+
+/* Стили для плейсхолдера */
+
+.search-input::placeholder {
+    color: #888;
+    /* Цвет плейсхолдера */
+    opacity: 1;
+    /* Делаем плейсхолдер полностью видимым */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    /* Переместить вниз */
+    left: 0;
+    /* Переместить влево */
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 80px;
+    margin-left: 25px;
+    animation: fadeIn 0.2s ease-out;
+    /* Анимация появления */
+    pointer-events: none;
+}
+
+.modal-content {
+    background-color: #eee;
+    border-radius: 25px;
+    width: 350px;
+    height: 350px;
+    padding-top: 15px;
+    position: relative;
+    pointer-events: auto;
+}
+
+.slipe-menu {
+    border: none;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.menu-text {
+    margin-left: 25px;
+    margin-top: 15px;
+    width: 300px;
+    height: 40px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+.menu-text:hover {
+    background-color: #0f0f0f;
+    color: #eee;
+}
+
+.img-menu {
+    width: 32px;
+    height: 32px;
+    margin-top: 50px;
+    margin-left: 25px;
+    border-radius: 10px;
+    transition: background-color 0.1s ease;
+}
+
+.img-menu:hover {
+    background-color: #bbc;
+}
+
+.bottom-menu {
+    position: absolute;
+    /* Абсолютное позиционирование внутри родительского элемента */
+    bottom: 0;
+    /* Размещаем элемент внизу */
+    left: 0;
+    /* Можете указать другую позицию слева, если это необходимо */
+    margin-bottom: 15px;
+}
+
+@keyframes fadeIn {
+    from {
+        margin-bottom: 40px;
+        opacity: 0;
+    }
+    to {
+        margin-bottom: 80px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        margin-bottom: 80px;
+        opacity: 1;
+    }
+    to {
+        margin-bottom: 40px;
+        opacity: 0;
+    }
+}

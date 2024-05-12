@@ -1,0 +1,4 @@
+<Config>
+    <Application appid="com.systemui" cat="applications/com.systemui" />
+    <Application appid="com.systemsetup" cat="applications/com.systemsetup" />
+</Config>
